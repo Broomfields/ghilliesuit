@@ -1,0 +1,14 @@
+
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+        { "tag": "minecraft:leaves" },
+        { "tag": "minecraft:leaves" },
+        { "item": "minecraft:string" },
+        { "tag": "minecraft:wool" }
+    ],
+    "result": {
+        "item": "ghilliesuit:ghillie_weave",
+        "count": 2
+    }
+}

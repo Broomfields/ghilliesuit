@@ -1,7 +1,6 @@
-package com.github.enstroe;
+package com.github.enstroe.items;
 
 import net.minecraft.item.Item;
-// import net.minecraft.item.ItemGroup;
 
 public class GhillieWeaveItem extends Item {
     public GhillieWeaveItem(Settings settings) {
