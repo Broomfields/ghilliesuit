@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.Enstroe.mc-ghillie-suit"
+      "com.github.enstroe.Ghilliesuit"
     ]
   },
   "mixins": [

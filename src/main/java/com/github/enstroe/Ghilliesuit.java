@@ -1,8 +1,8 @@
-package net.fabricmc.example;
+package com.github.enstroe;
 
 import net.fabricmc.api.ModInitializer;
 
-public class ExampleMod implements ModInitializer {
+public class Ghilliesuit implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
