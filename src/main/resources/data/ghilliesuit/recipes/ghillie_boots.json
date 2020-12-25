@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "GGG",
+      "GAG",
+      "GGG"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:leather_boots"
+      },
+      "G": {
+        "item": "ghilliesuit:ghillie_weave"
+      }
+    },
+    "result": {
+        "item": "ghilliesuit:ghillie_boots",
+        "count": 1
+    }
+  }
+
