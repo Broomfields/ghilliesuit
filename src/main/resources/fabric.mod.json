@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "enstroe-ghillie-suit",
+  "id": "ghilliesuit",
   "version": "${version}",
 
   "name": "Ghillie Suit",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.github.Enstroe.mc-ghillie-suit"
     ]
   },
   "mixins": [
