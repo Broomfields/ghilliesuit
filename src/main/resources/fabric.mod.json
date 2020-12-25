@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "enstroe-ghillie-suit",
+  "version": "${version}",
+
+  "name": "Ghillie Suit",
+  "description": "Ghillie Suit mod made by Enstroe.",
+  "authors": [
+    "Shaun Broomfield | Enstroe"
+  ],
+  "contact": {
+    "homepage": "https://shaunbroomfield.com/minecraftmods/ghilliesuit",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.fabricmc.example.ExampleMod"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
