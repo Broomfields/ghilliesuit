@@ -1,4 +1,4 @@
-# mc-ghillie-suit
+# mc-ghilliesuit
  Ghillie Suit mod for Minecraft.
 ## Setup
 
