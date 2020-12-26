@@ -11,10 +11,12 @@ import net.minecraft.util.registry.Registry;
 import com.github.enstroe.armour.ModArmourMaterials;
 import com.github.enstroe.items.GhillieWeaveItem;
 
-
-// import GhillieArmourMaterial;
-
 public class Ghilliesuit implements ModInitializer {
+
+	///////////////////
+	/// Private Variables
+
+	private static final String MODID = "ghilliesuit";
 
 
 	///////////////////
@@ -22,7 +24,7 @@ public class Ghilliesuit implements ModInitializer {
 
 	private static final Item GHILLIE_WEAVE = new GhillieWeaveItem(new Item.Settings().group(ItemGroup.MATERIALS).maxCount(64));
 	
-	private static final Item GHILLIE_CAP = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
+	private static final Item GHILLIE_HOOD = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
 	private static final Item GHILLIE_TUNIC = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
 	private static final Item GHILLIE_PANTS = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT));
 	private static final Item GHILLIE_BOOTS = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
@@ -38,12 +40,12 @@ public class Ghilliesuit implements ModInitializer {
 		///////////////////
 		/// Item Registry
 
-		Registry.register(Registry.ITEM, new Identifier("ghilliesuit", "ghillie_weave"), GHILLIE_WEAVE);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_weave"), GHILLIE_WEAVE);
 
-		Registry.register(Registry.ITEM, new Identifier("ghilliesuit", "ghillie_cap"), GHILLIE_CAP);
-		Registry.register(Registry.ITEM, new Identifier("ghilliesuit", "ghillie_tunic"), GHILLIE_TUNIC);
-		Registry.register(Registry.ITEM, new Identifier("ghilliesuit", "ghillie_pants"), GHILLIE_PANTS);
-		Registry.register(Registry.ITEM, new Identifier("ghilliesuit", "ghillie_boots"), GHILLIE_BOOTS);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_helmet"), GHILLIE_HOOD);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_chestplate"), GHILLIE_TUNIC);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_leggings"), GHILLIE_PANTS);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_boots"), GHILLIE_BOOTS);
 
 
 		

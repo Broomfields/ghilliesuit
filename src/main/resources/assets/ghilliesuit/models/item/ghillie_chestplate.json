@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ghilliesuit:item/ghillie_pants"
+        "layer0": "ghilliesuit:item/ghillie_chestplate"
     }
 }

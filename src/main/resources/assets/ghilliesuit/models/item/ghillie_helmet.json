@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ghilliesuit:item/ghillie_cap"
+        "layer0": "ghilliesuit:item/ghillie_helmet"
     }
 }
