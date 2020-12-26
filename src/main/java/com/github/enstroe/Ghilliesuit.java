@@ -24,10 +24,10 @@ public class Ghilliesuit implements ModInitializer {
 
 	private static final Item GHILLIE_WEAVE = new GhillieWeaveItem(new Item.Settings().group(ItemGroup.MATERIALS).maxCount(64));
 	
-	private static final Item GHILLIE_HOOD = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
-	private static final Item GHILLIE_TUNIC = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
-	private static final Item GHILLIE_PANTS = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT));
-	private static final Item GHILLIE_BOOTS = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item GHILLIE_HELMET = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item GHILLIE_CHESTPLATE = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item GHILLIE_LEGGINGS = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item GHILLIE_BOOTS = new ArmorItem(ModArmourMaterials.GHILLIE, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
 
 
 	@Override
@@ -42,9 +42,9 @@ public class Ghilliesuit implements ModInitializer {
 
 		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_weave"), GHILLIE_WEAVE);
 
-		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_helmet"), GHILLIE_HOOD);
-		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_chestplate"), GHILLIE_TUNIC);
-		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_leggings"), GHILLIE_PANTS);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_helmet"), GHILLIE_HELMET);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_chestplate"), GHILLIE_CHESTPLATE);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_leggings"), GHILLIE_LEGGINGS);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_boots"), GHILLIE_BOOTS);
 
 
