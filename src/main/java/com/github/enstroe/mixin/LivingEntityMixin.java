@@ -23,15 +23,15 @@ public abstract class LivingEntityMixin extends Entity {
     //Mandatory constructor for being an abstract extension (Never gonna be called)
     protected LivingEntityMixin(EntityType<?> type, World world) { super(type, world); }
 
-    @Shadow @Final private DefaultedList<ItemStack> equippedArmour;
+    @Shadow @Final private DefaultedList<ItemStack> equippedArmor;
 
-    @Inject(at = @At("HEAD"), method = "tick") private void tick(CallbackInfo info) { 
-
-        if(isAlive() && isSneaking()) { //First asserts that entitty is alive and sneaking (ghillie suit only works if sneaking)
-            ItemStack helmetStack       = equippedArmour.get(0);
-            ItemStack chestplateStack   = equippedArmour.get(1);
-            ItemStack leggingsStack     = equippedArmour.get(2);
-            ItemStack bootsStack        = equippedArmour.get(3);
+    @Inject(at = @At("HEAD"), method = "tick")
+    private void tick(CallbackInfo info) { 
+        if(isAlive()) { //First asserts that entitty is alive
+            ItemStack helmetStack       = equippedArmor.get(0);
+            ItemStack chestplateStack   = equippedArmor.get(1);
+            ItemStack leggingsStack     = equippedArmor.get(2);
+            ItemStack bootsStack        = equippedArmor.get(3);
 
             boolean hasHelmet = (helmetStack.getItem().equals(Ghilliesuit.GHILLIE_HELMET));
             boolean hasChestplate = (chestplateStack.getItem().equals(Ghilliesuit.GHILLIE_CHESTPLATE));
@@ -39,9 +39,34 @@ public abstract class LivingEntityMixin extends Entity {
             boolean hasBoots = (bootsStack.getItem().equals(Ghilliesuit.GHILLIE_BOOTS));
 
             //Checks that whole 'Ghillie Suit' is eqquipped
-            if(hasHelmet && hasChestplate && hasLeggings && hasBoots) {
+            boolean hasArmour = (hasHelmet && hasChestplate && hasLeggings && hasBoots);
+
+            if(hasHelmet) {
+                System.out.println("DEBUG : Has Helmet");
+            }
+            if(hasChestplate) {
+                System.out.println("DEBUG : Has Chestplate");
+            }
+            if(hasLeggings) {
+                System.out.println("DEBUG : Has Leggings");
+            }
+            if(hasBoots) {
+                System.out.println("DEBUG : Has Boots");
+            }
+
+            if(hasArmour) {
+                System.out.println("DEBUG : Has Armour");
                 
-                // if(!isInvisibleTo())
+                boolean isSneaking = isSneaking(); //ghillie suit only works if sneaking
+                if(isSneaking) {
+                    System.out.println("DEBUG : Is Sneaking");
+                } else {
+                    System.out.println("DEBUG : Is Not Sneaking");
+                }
+                setInvisible(isSneaking);
+            }
+            else {
+                System.out.println("DEBUG : Does Not Have Armour");
             }
         }
     }
