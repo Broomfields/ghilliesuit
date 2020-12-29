@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
@@ -28,41 +29,21 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(at = @At("HEAD"), method = "tick")
     private void tick(CallbackInfo info) { 
         if(isAlive()) { //First asserts that entitty is alive
-            ItemStack helmetStack       = equippedArmor.get(0);
-            ItemStack chestplateStack   = equippedArmor.get(1);
-            ItemStack leggingsStack     = equippedArmor.get(2);
-            ItemStack bootsStack        = equippedArmor.get(3);
+            Item helmet       = equippedArmor.get(3).getItem();
+            Item chestplate   = equippedArmor.get(2).getItem();
+            Item leggings     = equippedArmor.get(1).getItem();
+            Item boots        = equippedArmor.get(0).getItem();
 
-            boolean hasHelmet = (helmetStack.getItem().equals(Ghilliesuit.GHILLIE_HELMET));
-            boolean hasChestplate = (chestplateStack.getItem().equals(Ghilliesuit.GHILLIE_CHESTPLATE));
-            boolean hasLeggings = (leggingsStack.getItem().equals(Ghilliesuit.GHILLIE_LEGGINGS));
-            boolean hasBoots = (bootsStack.getItem().equals(Ghilliesuit.GHILLIE_BOOTS));
+            boolean hasHelmet = (helmet.equals(Ghilliesuit.GHILLIE_HELMET));
+            boolean hasChestplate = (chestplate.equals(Ghilliesuit.GHILLIE_CHESTPLATE));
+            boolean hasLeggings = (leggings.equals(Ghilliesuit.GHILLIE_LEGGINGS));
+            boolean hasBoots = (boots.equals(Ghilliesuit.GHILLIE_BOOTS));
 
             //Checks that whole 'Ghillie Suit' is eqquipped
             boolean hasArmour = (hasHelmet && hasChestplate && hasLeggings && hasBoots);
-
-            if(hasHelmet) {
-                System.out.println("DEBUG : Has Helmet");
-            }
-            if(hasChestplate) {
-                System.out.println("DEBUG : Has Chestplate");
-            }
-            if(hasLeggings) {
-                System.out.println("DEBUG : Has Leggings");
-            }
-            if(hasBoots) {
-                System.out.println("DEBUG : Has Boots");
-            }
-
             if(hasArmour) {
-                System.out.println("DEBUG : Has Armour");
-                
                 boolean isSneaking = isSneaking(); //ghillie suit only works if sneaking
-                if(isSneaking) {
-                    System.out.println("DEBUG : Is Sneaking");
-                } else {
-                    System.out.println("DEBUG : Is Not Sneaking");
-                }
+
                 setInvisible(isSneaking);
             }
             else {
