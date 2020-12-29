@@ -42,12 +42,7 @@ public abstract class LivingEntityMixin extends Entity {
             //Checks that whole 'Ghillie Suit' is eqquipped
             boolean hasArmour = (hasHelmet && hasChestplate && hasLeggings && hasBoots);
             if(hasArmour) {
-                boolean isSneaking = isSneaking(); //ghillie suit only works if sneaking
-
-                setInvisible(isSneaking);
-            }
-            else {
-                System.out.println("DEBUG : Does Not Have Armour");
+                setInvisible(isSneaking()); //ghillie suit only works if sneaking
             }
         }
     }
