@@ -47,7 +47,6 @@ public class Ghilliesuit implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_leggings"), GHILLIE_LEGGINGS);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "ghillie_boots"), GHILLIE_BOOTS);
 
-
 		
 		///////////////////
 		/// Debug
