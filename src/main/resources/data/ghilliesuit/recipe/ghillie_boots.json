@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": "ghilliesuit:moss_weave"
+  },
+  "result": {
+    "id": "ghilliesuit:ghillie_boots"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:moss_block",
+    "minecraft:moss_block",
+    "minecraft:string",
+    "minecraft:string"
+  ],
+  "result": {
+    "id": "ghilliesuit:moss_weave",
+    "count": 2
+  }
+}
