@@ -7,6 +7,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorType;
@@ -46,6 +48,21 @@ public class Ghilliesuit implements ModInitializer {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output -> output.accept(MOSS_WEAVE));
 
 		LOGGER.info("Ghillie Suit loaded!");
+	}
+
+	/** True while the wearer has all four ghillie pieces equipped. */
+	public static boolean hasFullSuit(LivingEntity entity) {
+		return ghilliePiecesWorn(entity) == 4;
+	}
+
+	/** Number of ghillie pieces worn (0-4); each piece shrinks the mob detection range. */
+	public static int ghilliePiecesWorn(LivingEntity entity) {
+		int count = 0;
+		if (entity.getItemBySlot(EquipmentSlot.HEAD).is(GHILLIE_HELMET)) count++;
+		if (entity.getItemBySlot(EquipmentSlot.CHEST).is(GHILLIE_CHESTPLATE)) count++;
+		if (entity.getItemBySlot(EquipmentSlot.LEGS).is(GHILLIE_LEGGINGS)) count++;
+		if (entity.getItemBySlot(EquipmentSlot.FEET).is(GHILLIE_BOOTS)) count++;
+		return count;
 	}
 
 	private static Item.Properties itemProperties(String path) {
