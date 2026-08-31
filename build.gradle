@@ -12,12 +12,6 @@ repositories {
 }
 
 loom {
-	mods {
-		"ghilliesuit" {
-			sourceSet sourceSets.main
-		}
-	}
-
 	// Expose a JVM debug port so the VSCode launch configs can attach.
 	// suspend=n so normal runs are unaffected; attach from the debugger at any time.
 	runConfigs.configureEach {
@@ -34,6 +28,7 @@ loom {
 	fabricApi {
 		configureTests {
 			it.modId.set("ghilliesuit")
+			it.createSourceSet.set(true)
 			it.enableGameTests.set(true)
 			it.eula.set(true)
 		}
