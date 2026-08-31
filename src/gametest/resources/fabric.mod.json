@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "ghilliesuit-gametest",
+  "version": "1.0.0",
+  "name": "Ghillie Suit Game Tests",
+  "entrypoints": {
+    "fabric-gametest": [
+      "com.github.broomfields.gametest.GhillieSuitGameTest"
+    ]
+  },
+  "depends": {
+    "ghilliesuit": "*",
+    "fabric-gametest-api-v1": "*"
+  }
+}

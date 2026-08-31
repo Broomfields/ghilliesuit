@@ -30,6 +30,14 @@ loom {
 				break
 		}
 	}
+
+	fabricApi {
+		configureTests {
+			it.modId.set("ghilliesuit")
+			it.enableGameTests.set(true)
+			it.eula.set(true)
+		}
+	}
 }
 
 dependencies {
@@ -39,6 +47,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Headless gametests (Mojang's testing framework) for gameplay logic.
+	implementation "net.fabricmc.fabric-api:fabric-gametest-api-v1:4.0.21+4a7fa0819e"
 }
 
 processResources {
