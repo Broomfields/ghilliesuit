@@ -2,9 +2,13 @@
   <img src="assets/ghilliesuit-hero.png" alt="Ghillie Suit banner">
 </p>
 
-# Ghillie Suit
+<p align="center">
+  <a href="https://github.com/broomfields/ghilliesuit"><img src="https://img.shields.io/github/last-commit/broomfields/ghilliesuit" alt="Last commit"></a>
+  <a href="https://github.com/broomfields/ghilliesuit/releases"><img src="https://img.shields.io/github/v/release/broomfields/ghilliesuit" alt="Latest release"></a>
+  <a href="https://github.com/broomfields/ghilliesuit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/broomfields/ghilliesuit" alt="License"></a>
+</p>
 
-Ghillie Suit is a Minecraft mod that adds a ghillie suit. A ghillie suit is camouflage made from moss and string. It helps you hide from mobs and blend into the world.
+This Minecraft mod adds a mossy ghillie suit, that helps you hide from mobs and players.
 
 <p align="center">
   <img src="assets/ghillie-sneak.gif" alt="The full ghillie suit in action">
@@ -12,14 +16,12 @@ Ghillie Suit is a Minecraft mod that adds a ghillie suit. A ghillie suit is camo
 
 <p align="center">
   <a href="https://modrinth.com/mod/ghilliesuit"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg" alt="Available on Modrinth"></a>
-  <a href="https://fabricmc.net"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg" alt="Available for Fabric"></a>
   <a href="https://github.com/broomfields/ghilliesuit"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg" alt="Available on GitHub"></a>
 </p>
 
+
 <p align="center">
-  <a href="https://github.com/broomfields/ghilliesuit"><img src="https://img.shields.io/github/last-commit/broomfields/ghilliesuit" alt="Last commit"></a>
-  <a href="https://github.com/broomfields/ghilliesuit/releases"><img src="https://img.shields.io/github/v/release/broomfields/ghilliesuit" alt="Latest release"></a>
-  <a href="https://github.com/broomfields/ghilliesuit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/broomfields/ghilliesuit" alt="License"></a>
+  <a href="https://fabricmc.net"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg" alt="Available for Fabric"></a>
 </p>
 
 ## How it works
