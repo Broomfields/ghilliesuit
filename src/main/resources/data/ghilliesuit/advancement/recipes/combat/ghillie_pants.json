@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_moss_weave": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ghilliesuit:moss_weave"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ghilliesuit:ghillie_pants"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_moss_weave"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ghilliesuit:ghillie_pants"
+    ]
+  }
+}
