@@ -86,9 +86,9 @@ public abstract class EquipmentLayerRendererMixin {
 	}
 
 	private static boolean isGhillieArmor(ItemStack stack) {
-		return stack.is(Ghilliesuit.GHILLIE_HELMET)
-			|| stack.is(Ghilliesuit.GHILLIE_CHESTPLATE)
-			|| stack.is(Ghilliesuit.GHILLIE_LEGGINGS)
+		return stack.is(Ghilliesuit.GHILLIE_HOOD)
+			|| stack.is(Ghilliesuit.GHILLIE_TUNIC)
+			|| stack.is(Ghilliesuit.GHILLIE_PANTS)
 			|| stack.is(Ghilliesuit.GHILLIE_BOOTS);
 	}
 }

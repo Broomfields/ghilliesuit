@@ -7,14 +7,14 @@
     ],
     "key": {
       "A": {
-        "items": ["minecraft:leather_helmet"]
+        "items": ["minecraft:leather_leggings"]
       },
       "G": {
         "items": ["ghilliesuit:moss_weave"]
       }
     },
     "result": {
-        "id": "ghilliesuit:ghillie_helmet",
+        "id": "ghilliesuit:ghillie_pants",
         "count": 1
     }
   }

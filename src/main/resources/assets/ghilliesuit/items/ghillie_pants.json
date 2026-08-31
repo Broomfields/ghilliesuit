@@ -1,6 +1,6 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "ghilliesuit:item/ghillie_helmet"
+        "model": "ghilliesuit:item/ghillie_pants"
     }
 }

@@ -25,23 +25,23 @@ public class Ghilliesuit implements ModInitializer {
 
 	public static final Item MOSS_WEAVE = new Item(itemProperties("moss_weave").stacksTo(64));
 
-	public static final Item GHILLIE_HELMET = new Item(itemProperties("ghillie_helmet").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.HELMET));
-	public static final Item GHILLIE_CHESTPLATE = new Item(itemProperties("ghillie_chestplate").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.CHESTPLATE));
-	public static final Item GHILLIE_LEGGINGS = new Item(itemProperties("ghillie_leggings").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.LEGGINGS));
+	public static final Item GHILLIE_HOOD = new Item(itemProperties("ghillie_hood").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.HELMET));
+	public static final Item GHILLIE_TUNIC = new Item(itemProperties("ghillie_tunic").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.CHESTPLATE));
+	public static final Item GHILLIE_PANTS = new Item(itemProperties("ghillie_pants").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.LEGGINGS));
 	public static final Item GHILLIE_BOOTS = new Item(itemProperties("ghillie_boots").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.BOOTS));
 
 	@Override
 	public void onInitialize() {
 		registerItem("moss_weave", MOSS_WEAVE);
-		registerItem("ghillie_helmet", GHILLIE_HELMET);
-		registerItem("ghillie_chestplate", GHILLIE_CHESTPLATE);
-		registerItem("ghillie_leggings", GHILLIE_LEGGINGS);
+		registerItem("ghillie_hood", GHILLIE_HOOD);
+		registerItem("ghillie_tunic", GHILLIE_TUNIC);
+		registerItem("ghillie_pants", GHILLIE_PANTS);
 		registerItem("ghillie_boots", GHILLIE_BOOTS);
 
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> {
-			output.accept(GHILLIE_HELMET);
-			output.accept(GHILLIE_CHESTPLATE);
-			output.accept(GHILLIE_LEGGINGS);
+			output.accept(GHILLIE_HOOD);
+			output.accept(GHILLIE_TUNIC);
+			output.accept(GHILLIE_PANTS);
 			output.accept(GHILLIE_BOOTS);
 		});
 
@@ -58,9 +58,9 @@ public class Ghilliesuit implements ModInitializer {
 	/** Number of ghillie pieces worn (0-4); each piece shrinks the mob detection range. */
 	public static int ghilliePiecesWorn(LivingEntity entity) {
 		int count = 0;
-		if (entity.getItemBySlot(EquipmentSlot.HEAD).is(GHILLIE_HELMET)) count++;
-		if (entity.getItemBySlot(EquipmentSlot.CHEST).is(GHILLIE_CHESTPLATE)) count++;
-		if (entity.getItemBySlot(EquipmentSlot.LEGS).is(GHILLIE_LEGGINGS)) count++;
+		if (entity.getItemBySlot(EquipmentSlot.HEAD).is(GHILLIE_HOOD)) count++;
+		if (entity.getItemBySlot(EquipmentSlot.CHEST).is(GHILLIE_TUNIC)) count++;
+		if (entity.getItemBySlot(EquipmentSlot.LEGS).is(GHILLIE_PANTS)) count++;
 		if (entity.getItemBySlot(EquipmentSlot.FEET).is(GHILLIE_BOOTS)) count++;
 		return count;
 	}
