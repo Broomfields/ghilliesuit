@@ -22,7 +22,7 @@ public class Ghilliesuit implements ModInitializer {
 	public static final String MOD_ID = "ghilliesuit";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final Item GHILLIE_WEAVE = new Item(itemProperties("ghillie_weave").stacksTo(64));
+	public static final Item MOSS_WEAVE = new Item(itemProperties("moss_weave").stacksTo(64));
 
 	public static final Item GHILLIE_HELMET = new Item(itemProperties("ghillie_helmet").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.HELMET));
 	public static final Item GHILLIE_CHESTPLATE = new Item(itemProperties("ghillie_chestplate").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.CHESTPLATE));
@@ -31,9 +31,9 @@ public class Ghilliesuit implements ModInitializer {
 
 	public static final CreativeModeTab GHILLIE_TAB = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
 		.title(Component.translatable("itemGroup.ghilliesuit"))
-		.icon(() -> new ItemStack(GHILLIE_WEAVE))
+		.icon(() -> new ItemStack(MOSS_WEAVE))
 		.displayItems((parameters, output) -> {
-			output.accept(GHILLIE_WEAVE);
+			output.accept(MOSS_WEAVE);
 			output.accept(GHILLIE_HELMET);
 			output.accept(GHILLIE_CHESTPLATE);
 			output.accept(GHILLIE_LEGGINGS);
@@ -43,7 +43,7 @@ public class Ghilliesuit implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		registerItem("ghillie_weave", GHILLIE_WEAVE);
+		registerItem("moss_weave", MOSS_WEAVE);
 		registerItem("ghillie_helmet", GHILLIE_HELMET);
 		registerItem("ghillie_chestplate", GHILLIE_CHESTPLATE);
 		registerItem("ghillie_leggings", GHILLIE_LEGGINGS);

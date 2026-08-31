@@ -28,7 +28,7 @@ public class ModArmourMaterials {
 	);
 
 	private static TagKey<Item> repairIngredient() {
-		return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("ghilliesuit", "ghillie_weave"));
+		return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("ghilliesuit", "moss_weave"));
 	}
 
 	private static Map<ArmorType, Integer> makeDefense(int boots, int legs, int chest, int helm, int body) {
