@@ -1,15 +1,14 @@
 package com.github.broomfields;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorType;
 
 import org.slf4j.Logger;
@@ -29,18 +28,6 @@ public class Ghilliesuit implements ModInitializer {
 	public static final Item GHILLIE_LEGGINGS = new Item(itemProperties("ghillie_leggings").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.LEGGINGS));
 	public static final Item GHILLIE_BOOTS = new Item(itemProperties("ghillie_boots").humanoidArmor(ModArmourMaterials.GHILLIE, ArmorType.BOOTS));
 
-	public static final CreativeModeTab GHILLIE_TAB = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-		.title(Component.translatable("itemGroup.ghilliesuit"))
-		.icon(() -> new ItemStack(MOSS_WEAVE))
-		.displayItems((parameters, output) -> {
-			output.accept(MOSS_WEAVE);
-			output.accept(GHILLIE_HELMET);
-			output.accept(GHILLIE_CHESTPLATE);
-			output.accept(GHILLIE_LEGGINGS);
-			output.accept(GHILLIE_BOOTS);
-		})
-		.build();
-
 	@Override
 	public void onInitialize() {
 		registerItem("moss_weave", MOSS_WEAVE);
@@ -49,7 +36,14 @@ public class Ghilliesuit implements ModInitializer {
 		registerItem("ghillie_leggings", GHILLIE_LEGGINGS);
 		registerItem("ghillie_boots", GHILLIE_BOOTS);
 
-		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, id("ghilliesuit"), GHILLIE_TAB);
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> {
+			output.accept(GHILLIE_HELMET);
+			output.accept(GHILLIE_CHESTPLATE);
+			output.accept(GHILLIE_LEGGINGS);
+			output.accept(GHILLIE_BOOTS);
+		});
+
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output -> output.accept(MOSS_WEAVE));
 
 		LOGGER.info("Ghillie Suit loaded!");
 	}
