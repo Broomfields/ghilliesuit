@@ -8,6 +8,8 @@ on: [pull_request, push]
 
 jobs:
   build:
+    # The version-bump commit pushed by the release workflow contains "[skip ci]".
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-24.04
     steps:
       - name: checkout repository

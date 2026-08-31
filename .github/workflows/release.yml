@@ -1,0 +1,53 @@
+# On every push to main (and manually), run the tests, bump the patch version,
+# rebuild, and attach the jar to a new GitHub release tagged with that version.
+name: release
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    # The version-bump commit pushed by this workflow contains "[skip ci]", which
+    # stops it from re-triggering itself in an endless loop.
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v6
+      - name: setup jdk
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distribution: 'microsoft'
+      - name: make gradle wrapper executable
+        run: chmod +x ./gradlew
+      - name: run tests
+        run: ./gradlew build runGameTest
+      - name: bump patch version
+        id: bump
+        run: |
+          version=$(sed -n 's/^mod_version=//p' gradle.properties)
+          major=${version%%.*}; rest=${version#*.}; minor=${rest%%.*}; patch=${rest##*.}
+          new_version="$major.$minor.$((patch + 1))"
+          sed "s/^mod_version=.*/mod_version=$new_version/" gradle.properties > gradle.properties.tmp
+          mv gradle.properties.tmp gradle.properties
+          echo "version=$new_version" >> "$GITHUB_OUTPUT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gradle.properties
+          git commit -m "Bumped version to $new_version [skip ci]"
+          git push
+      - name: build release jar
+        run: ./gradlew build
+      - name: create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="${{ steps.bump.outputs.version }}"
+          gh release create "v$version" "build/libs/ghillie-suit-mod-$version.jar" \
+            --title "Ghillie Suit v$version" \
+            --generate-notes
