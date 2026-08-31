@@ -4,13 +4,12 @@
   "version": "${version}",
 
   "name": "Ghillie Suit",
-  "description": "Ghillie Suit mod made by Enstroe.",
+  "description": "Ghillie Suit mod made by Broomfields.",
   "authors": [
-    "Shaun Broomfield | Enstroe"
+    "Shaun Broomfield | Broomfields"
   ],
   "contact": {
-    "homepage": "https://shaunbroomfield.com/minecraftmods/ghilliesuit",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://shaunbroomfield.com/minecraftmods/ghilliesuit"
   },
 
   "license": "CC0-1.0",
@@ -19,7 +18,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.enstroe.Ghilliesuit"
+      "com.github.broomfields.Ghilliesuit"
     ]
   },
   "mixins": [
@@ -27,11 +26,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
-    "fabric": "*",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
   }
 }

@@ -1,0 +1,13 @@
+{
+    "layers": {
+        "humanoid": [
+            { "texture": "ghilliesuit:ghillie_layer_1" }
+        ],
+        "humanoid_leggings": [
+            { "texture": "ghilliesuit:ghillie_layer_2" }
+        ],
+        "humanoid_baby": [
+            { "texture": "ghilliesuit:ghillie_layer_1" }
+        ]
+    }
+}
