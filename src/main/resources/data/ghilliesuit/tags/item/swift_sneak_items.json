@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+        "#minecraft:enchantable/leg_armor",
+        "ghilliesuit:ghillie_pants"
+    ]
+}

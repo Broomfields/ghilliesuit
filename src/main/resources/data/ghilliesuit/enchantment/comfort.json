@@ -1,0 +1,22 @@
+{
+    "description": {
+        "translate": "enchantment.ghilliesuit.comfort"
+    },
+    "supported_items": "#ghilliesuit:ghillie_armor",
+    "primary_items": "#ghilliesuit:ghillie_armor",
+    "weight": 10,
+    "max_level": 1,
+    "min_cost": {
+        "base": 5,
+        "per_level_above_first": 0
+    },
+    "max_cost": {
+        "base": 15,
+        "per_level_above_first": 0
+    },
+    "anvil_cost": 2,
+    "slots": [
+        "armor"
+    ],
+    "exclusive_set": "#ghilliesuit:exclusive_set/stealth"
+}

@@ -4,16 +4,21 @@ import java.util.List;
 import java.util.Optional;
 
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.ShapedRecipe;
@@ -75,6 +80,75 @@ public class GhillieSuitGameTest {
 		ItemStack result = recipe.assemble(input);
 		helper.assertTrue(result.is(Ghilliesuit.GHILLIE_HOOD) && result.getCount() == 1, "should output a ghillie hood, got " + result);
 		helper.succeed();
+	}
+
+	// Comfort applies to every ghillie piece: hood, tunic, pants and boots.
+	@GameTest(structure = "minecraft:empty")
+	public void comfortEnchantableOnAllGhilliePieces(GameTestHelper helper) {
+		Enchantment comfort = enchantment(helper, "ghilliesuit:comfort");
+		helper.assertTrue(comfort.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_HOOD)), "comfort should apply to the ghillie hood");
+		helper.assertTrue(comfort.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_TUNIC)), "comfort should apply to the ghillie tunic");
+		helper.assertTrue(comfort.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_PANTS)), "comfort should apply to the ghillie pants");
+		helper.assertTrue(comfort.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_BOOTS)), "comfort should apply to the ghillie boots");
+		helper.succeed();
+	}
+
+	// Poise is tunic-only; the other three pieces stay un-enchantable with it.
+	@GameTest(structure = "minecraft:empty")
+	public void poiseEnchantableOnTunicOnly(GameTestHelper helper) {
+		Enchantment poise = enchantment(helper, "ghilliesuit:poise");
+		helper.assertTrue(poise.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_TUNIC)), "poise should apply to the ghillie tunic");
+		helper.assertFalse(poise.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_HOOD)), "poise should not apply to the ghillie hood");
+		helper.assertFalse(poise.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_PANTS)), "poise should not apply to the ghillie pants");
+		helper.assertFalse(poise.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_BOOTS)), "poise should not apply to the ghillie boots");
+		helper.succeed();
+	}
+
+	// Swift Sneak reaches the ghillie pants via the swift_sneak datapack override, and only there.
+	@GameTest(structure = "minecraft:empty")
+	public void swiftSneakEnchantableOnGhilliePants(GameTestHelper helper) {
+		Enchantment swiftSneak = enchantment(helper, "minecraft:swift_sneak");
+		helper.assertTrue(swiftSneak.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_PANTS)), "swift sneak should apply to the ghillie pants");
+		helper.assertFalse(swiftSneak.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_TUNIC)), "swift sneak should not apply to the ghillie tunic");
+		helper.assertFalse(swiftSneak.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_HOOD)), "swift sneak should not apply to the ghillie hood");
+		helper.assertFalse(swiftSneak.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_BOOTS)), "swift sneak should not apply to the ghillie boots");
+		helper.succeed();
+	}
+
+	// General armour enchantments stay off the suit: only the ghillie-only sneak enchants apply.
+	@GameTest(structure = "minecraft:empty")
+	public void protectionNotEnchantableOnGhillieArmor(GameTestHelper helper) {
+		Enchantment protection = enchantment(helper, "minecraft:protection");
+		helper.assertFalse(protection.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_HOOD)), "protection should not apply to the ghillie hood");
+		helper.assertFalse(protection.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_TUNIC)), "protection should not apply to the ghillie tunic");
+		helper.assertFalse(protection.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_PANTS)), "protection should not apply to the ghillie pants");
+		helper.assertFalse(protection.canEnchant(new ItemStack(Ghilliesuit.GHILLIE_BOOTS)), "protection should not apply to the ghillie boots");
+		helper.succeed();
+	}
+
+	// Comfort and Poise share an exclusive set, so a tunic can only ever hold one of them.
+	@GameTest(structure = "minecraft:empty")
+	public void comfortAndPoiseAreMutuallyExclusive(GameTestHelper helper) {
+		Registry<Enchantment> enchantments = helper.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+		Holder<Enchantment> comfort = enchantments.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath("ghilliesuit", "comfort")));
+		Holder<Enchantment> poise = enchantments.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath("ghilliesuit", "poise")));
+		helper.assertFalse(Enchantment.areCompatible(comfort, poise), "comfort and poise should be mutually exclusive on the tunic");
+		helper.succeed();
+	}
+
+	// The ENCHANTABLE component is present, so the enchanting table shows a (positive) cost on the suit.
+	@GameTest(structure = "minecraft:empty")
+	public void ghillieArmorHasEnchantmentCost(GameTestHelper helper) {
+		helper.assertTrue(
+			EnchantmentHelper.getEnchantmentCost(RandomSource.create(), 0, 30, new ItemStack(Ghilliesuit.GHILLIE_TUNIC)) > 0,
+			"the ghillie tunic should have a positive enchanting cost"
+		);
+		helper.succeed();
+	}
+
+	private static Enchantment enchantment(GameTestHelper helper, String id) {
+		Registry<Enchantment> enchantments = helper.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+		return enchantments.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT, Identifier.parse(id))).value();
 	}
 
 	private static ItemStack weave() {

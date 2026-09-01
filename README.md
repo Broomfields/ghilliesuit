@@ -26,15 +26,32 @@ This Minecraft mod adds a mossy ghillie suit, that helps you hide from mobs and 
 
 ## How it works
 
-The ghillie suit has two stealth tiers.
+The ghillie suit is equivalent to leather tier armour, in everything but its mechanics.
 
-Each piece you wear makes it harder for mobs to see you. With the full suit, the mob detection range is cut in half.
+It has two stealth tiers:
 
-When you wear the full suit and crouch, you become invisible to all mobs. They can no longer target you, and mobs that are already chasing you will lose you. Other players still see you as a translucent ghost, so you blend in instead of vanishing.
+- **Passive**
+  Each piece you wear makes it harder for mobs to see you. With the full suit, the mob detection range is cut in half.
+
+- **Active**
+  When you wear the full suit and crouch, you become invisible to all mobs. They can no longer target you, and mobs that are already chasing you will lose sight of you. Other players can still see you as a translucent ghost, so you blend in instead of vanishing.
 
 <p align="center">
   <img src="assets/transition.png" alt="Standing up in the suit compared to crouching">
 </p>
+
+## Enchanting
+
+The suit shrugs off the usual armour enchantments, and instead comes with a small set of its own:
+
+- **Swift Sneak**
+  Available on the ghillie pants *(vanilla's sneak-speed enchantment)*.
+- **Comfort**
+  Apply it to any ghillie piece. Each Comfort-enchanted piece you wear stretches the active ability, so a full set doubles your sneak time.
+- **Poise**
+  Apply it to the ghillie tunic. While actively hidden, your attacks become critical strikes.
+
+Comfort and Poise can't share a tunic, so you pick one or the other there.
 
 ## How to get started
 
