@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ghilliesuit:ghillie_hood"
+        "recipes": "ghilliesuit:ghillie_hood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

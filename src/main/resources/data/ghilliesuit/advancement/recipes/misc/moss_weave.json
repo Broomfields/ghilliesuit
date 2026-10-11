@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ghilliesuit:moss_weave"
+        "recipes": "ghilliesuit:moss_weave"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

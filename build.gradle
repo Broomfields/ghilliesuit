@@ -46,7 +46,7 @@ dependencies {
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 	// Headless gametests (Mojang's testing framework) for gameplay logic.
-	implementation "net.fabricmc.fabric-api:fabric-gametest-api-v1:4.0.21+4a7fa0819e"
+	implementation "net.fabricmc.fabric-api:fabric-gametest-api-v1:4.0.33+3434d6d95d"
 }
 
 processResources {

@@ -471,7 +471,7 @@ public class GhillieSuitGameTest {
 	}
 
 	private static void assertDetectionMultiplier(GameTestHelper helper, Zombie zombie, int ghilliePieceCount, double expectedMultiplier) {
-		double actualMultiplier = zombie.getVisibilityPercent(null);
+		double actualMultiplier = zombie.getVisibilityPercent(helper.getLevel(), null);
 		helper.assertTrue(
 			Math.abs(actualMultiplier - expectedMultiplier) < 1.0E-6,
 			"with " + ghilliePieceCount + " pieces worn the detection multiplier should be " + expectedMultiplier + " but was " + actualMultiplier

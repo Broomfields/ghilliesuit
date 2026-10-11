@@ -2,6 +2,7 @@ package com.github.broomfields.mixin;
 
 import com.github.broomfields.Ghilliesuit;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -55,7 +56,7 @@ public abstract class LivingEntityMixin {
 	}
 
 	@Inject(at = @At("RETURN"), method = "getVisibilityPercent", cancellable = true)
-	private void ghilliesuit_getVisibilityPercent(Entity targetingEntity, CallbackInfoReturnable<Double> callback) {
+	private void ghilliesuit_getVisibilityPercent(ServerLevel level, Entity targetingEntity, CallbackInfoReturnable<Double> callback) {
 		int ghilliePieceCount = Ghilliesuit.ghilliePiecesWorn((LivingEntity) (Object) this);
 		if (ghilliePieceCount > 0) {
 			callback.setReturnValue(callback.getReturnValueD() * (1.0 - ghilliePieceCount * DETECTION_REDUCTION_PER_PIECE));
