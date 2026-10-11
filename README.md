@@ -35,6 +35,7 @@ It has two stealth tiers:
 
 - **Active**
   When you wear the full suit and crouch, you become invisible to all mobs. They can no longer target you, and mobs that are already chasing you will lose sight of you. Other players can still see you as a translucent ghost, so you blend in instead of vanishing.
+  The active ability drains your hunger bar *(10 seconds of stealth on a full stomach)* and stops the moment your hunger bar is empty. Each piece you enchant with Comfort stretches that window, and a full Comfort set triples it to 30 seconds.
 
 <p align="center">
   <img src="assets/transition.png" alt="Standing up in the suit compared to crouching">
@@ -42,16 +43,25 @@ It has two stealth tiers:
 
 ## Enchanting
 
-The suit shrugs off the usual armour enchantments, and instead comes with a small set of its own:
+The suit accepts the following enchantments:
 
+- **Mending**
+  Available on every ghillie piece.
+- **Unbreaking**
+  Available on every ghillie piece, up to level III.
 - **Swift Sneak**
-  Available on the ghillie pants *(vanilla's sneak-speed enchantment)*.
+  Available on the ghillie pants.
 - **Comfort**
-  Apply it to any ghillie piece. Each Comfort-enchanted piece you wear stretches the active ability, so a full set doubles your sneak time.
+  Apply it to any ghillie piece. Each Comfort-enchanted piece adds 5 seconds of active stealth from a full hunger bar, so a full set triples your sneak time to about 30 seconds.
 - **Poise**
-  Apply it to the ghillie tunic. While actively hidden, your attacks become critical strikes.
+  Apply it to the ghillie tunic. While actively hidden, fully charged melee attacks become critical strikes without needing to jump. They use vanilla critical damage and effects; ranged attacks are unaffected.
 
-Comfort and Poise can't share a tunic, so you pick one or the other there.
+Comfort, Poise, and Unbreaking are available at the enchanting table.
+Mending or Swift Sneak can be applied using an enchanted book and an anvil.
+
+Mending and Unbreaking can coexist with each other and the suit's other enchantments.
+Comfort and Poise can't share a tunic.
+Other vanilla armour enchantments, such as Protection, remain unavailable to help ballance the ghillie suit with other armour sets.
 
 ## How to get started
 

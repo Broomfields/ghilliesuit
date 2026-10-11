@@ -6,7 +6,8 @@
 		"LivingEntityMixin",
 		"EntityMixin",
 		"MobMixin",
-		"TargetingConditionsMixin"
+		"TargetingConditionsMixin",
+		"PlayerMixin"
 	],
 	"client": [
 		"EquipmentLayerRendererMixin"

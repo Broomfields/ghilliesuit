@@ -2,14 +2,13 @@
     "tag.item.ghilliesuit.moss_weave": "Moss Weave",
     "tag.item.ghilliesuit.ghillie_armor": "Ghillie Armor",
     "tag.item.ghilliesuit.swift_sneak_items": "Swift Sneak Items",
-
     "item.ghilliesuit.moss_weave": "Moss Weave",
-
     "item.ghilliesuit.ghillie_hood": "Ghillie Hood",
     "item.ghilliesuit.ghillie_tunic": "Ghillie Tunic",
     "item.ghilliesuit.ghillie_pants": "Ghillie Pants",
     "item.ghilliesuit.ghillie_boots": "Ghillie Boots",
-
     "enchantment.ghilliesuit.comfort": "Comfort",
-    "enchantment.ghilliesuit.poise": "Poise"
+    "enchantment.ghilliesuit.poise": "Poise",
+    "tag.item.ghilliesuit.durability_enchantable": "Durability Enchantable",
+    "tag.item.ghilliesuit.unbreaking_armor": "Unbreaking Armor"
 }
