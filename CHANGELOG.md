@@ -2,7 +2,7 @@
 
 Changes to the mod are listed here. Versions before 1.1.0 are covered in the GitHub release notes.
 
-## [1.1.0] - Unreleased
+## [1.1.0] - Released (26.2/26.3)
 
 ### Added
 
