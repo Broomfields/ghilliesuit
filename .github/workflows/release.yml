@@ -37,7 +37,7 @@ jobs:
           MINECRAFT_VERSION: ${{ steps.release_version.outputs.minecraft_version }}
         run: |
           version="${{ steps.release_version.outputs.version }}"
-          gh release create "v$version" "build/libs/ghillie-suit-mod-$version+$MINECRAFT_VERSION.jar" \
+          gh release create "v$version+$MINECRAFT_VERSION" "build/libs/ghillie-suit-mod-$version+$MINECRAFT_VERSION.jar" \
             --target "$RELEASE_COMMIT" \
             --title "Ghillie Suit v$version ($MINECRAFT_VERSION)" \
             --generate-notes
